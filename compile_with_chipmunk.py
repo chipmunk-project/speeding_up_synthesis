@@ -65,7 +65,7 @@ def main(argv):
                              stateful_alu + " " + \
                              stateless_alu + " " + num_of_pipelines + " " + \
                              num_of_alu_per_stage + " " + "\"" + constant_set + "\"" +\
-                             " " + input_bits
+                             " " + input_bits + " --parallel-sketch "
         print(cmd_to_iterater_solver)
         start_time = time.time()
         (ret_code_iterative_solver, _) = subprocess.getstatusoutput(cmd_to_iterater_solver)
