@@ -44,12 +44,12 @@ def main(argv):
 
     cmd_to_canonicalizer = "canonicalizer " + domino_program + " > " + canonicalized_program
     (ret_code_canonicalizer, _) = subprocess.getstatusoutput(cmd_to_canonicalizer)
-    # print(cmd_to_canonicalizer)
+    print(cmd_to_canonicalizer)
     assert(ret_code_canonicalizer == 0)
 
     cmd_to_grouper = "grouper " + canonicalized_program + " " + group_size
     (ret_code_grouper, grouper_output) = subprocess.getstatusoutput(cmd_to_grouper)
-    # print(cmd_to_grouper)
+    print(cmd_to_grouper)
     assert(ret_code_grouper == 0)
    
     total_num_of_grouped_files = int(grouper_output)
@@ -57,16 +57,16 @@ def main(argv):
         grouper_file_name = "/tmp/" + domino_program_name + "_canonicalized_equivalent_" + str(i) + ".c"
         chipmunk_program_name = "/tmp/" + domino_program_name + "_" + str(i) + ".sk"
         cmd_to_domino_to_chipmunk = "domino_to_chipmunk " + grouper_file_name + " > " + chipmunk_program_name
-        # print("cmd_to_domino_to_chipmunk::",cmd_to_domino_to_chipmunk)
+        print("cmd_to_domino_to_chipmunk::",cmd_to_domino_to_chipmunk)
         (ret_code_domino_to_chipmunk, domino_to_chipmunk_output) = subprocess.getstatusoutput(cmd_to_domino_to_chipmunk)
         assert(ret_code_domino_to_chipmunk == 0)
-        # print(cmd_to_domino_to_chipmunk)
+        print(cmd_to_domino_to_chipmunk)
         cmd_to_iterater_solver = "time iterative_solver " + chipmunk_program_name + " " +\
                              stateful_alu + " " + \
                              stateless_alu + " " + num_of_pipelines + " " + \
                              num_of_alu_per_stage + " " + "\"" + constant_set + "\"" +\
                              " " + input_bits
-        # print(cmd_to_iterater_solver)
+        print(cmd_to_iterater_solver)
         start_time = time.time()
         (ret_code_iterative_solver, _) = subprocess.getstatusoutput(cmd_to_iterater_solver)
         end_time = time.time()

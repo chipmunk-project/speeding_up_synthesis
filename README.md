@@ -9,4 +9,6 @@ python3 compile_with_chipmunk.py domino_benchmarks/blue_decrease.c 1 chipmunk_al
 4. To run domino, use a command line like this:
 ```shell
 domino domino_benchmarks/blue_decrease.c domino_atoms/sub.sk 10 10
+domino domino_benchmarks/blue_increase.c domino_atoms/pred_raw.sk 10 10
+domino domino_benchmarks/rcp.c domino_atoms/pred_raw.sk 10 10
 ```
