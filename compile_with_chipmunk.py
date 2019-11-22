@@ -68,14 +68,14 @@ def main(argv):
                              " " + input_bits
         # print(cmd_to_iterater_solver)
         start_time = time.time()
-        (ret_code_iterative_solver, iterative_solver_output) = subprocess.getstatusoutput(cmd_to_iterater_solver)
+        (ret_code_iterative_solver, _) = subprocess.getstatusoutput(cmd_to_iterater_solver)
         end_time = time.time()
         if ret_code_iterative_solver == 0:
             print("Compilation succeeds for Program: " + domino_program_name + ", with stateful alu: " + stateful_alu + 
                   " and stateless alu: " + stateless_alu + ", with grid size: " + num_of_pipelines + " * " + num_of_alu_per_stage)
             print("Total time used for this compilation is " + str(round(end_time - start_time, 2)) + " seconds")
             sys.exit(0)
-    print("Compilation succeeds for Program: " + domino_program_name + ", with stateful alu: " + stateful_alu + 
+    print("Compilation fails for Program: " + domino_program_name + ", with stateful alu: " + stateful_alu + 
           " and stateless alu: " + stateless_alu + ", with grid size: " + num_of_pipelines + " * " + num_of_alu_per_stage)
     sys.exit(1)
 
