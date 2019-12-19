@@ -57,7 +57,7 @@ def main(argv):
         grouper_file_name = "/tmp/" + domino_program_name + "_canonicalized_equivalent_" + str(i) + ".c"
         chipmunk_program_name = "/tmp/" + domino_program_name + "_" + str(i) + ".sk"
         cmd_to_domino_to_chipmunk = "domino_to_chipmunk " + grouper_file_name + " > " + chipmunk_program_name
-        print("cmd_to_domino_to_chipmunk::",cmd_to_domino_to_chipmunk)
+        print("cmd_to_domino_to_chipmunk:",cmd_to_domino_to_chipmunk)
         (ret_code_domino_to_chipmunk, domino_to_chipmunk_output) = subprocess.getstatusoutput(cmd_to_domino_to_chipmunk)
         assert(ret_code_domino_to_chipmunk == 0)
         print(cmd_to_domino_to_chipmunk)
