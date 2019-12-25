@@ -1,0 +1,101 @@
+Note1: run every experiments on cyclops
+Note2: times are in seconds
+Note3: do not turn on parallel mode
+Benchmark                        origin                                                           slicing                                           dependency                           slicing + dependency
+                                                                   pkt_0   6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6                                                          pkt_0  6 + 6 + 6 + 6 + 6 + 5 + 6 + 6 + 6 + 6 
+                                                                   pkt_1   6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6                                                          pkt_1  5 + 5 + 6 + 5 + 6 + 5 + 6 + 5 + 6 + 5 
+                                                                     s_0   7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7                                                            s_0  42 + 39 + 38 + 39 + 42 + 39 + 38 + 39 + 40 + 38
+                                                                     s_1   32 + 33 + 32 + 33 + 32 + 31 + 32 + 31 + 31 + 31                                                  s_1  5 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6  
+blue_increase.sk  85 + 85 + 81 + 86 + 81 + 83 + 78 + 78 + 84 + 80                                                            21 + 22 + 22 + 22 + 22 + 22 + 22 + 22 + 21 + 22    
+cmd line:
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10
+
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=0
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=1
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=0
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=1
+
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-dependency 1 0
+
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=0 --state-dependency 1 0
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=1 --state-dependency 1 0
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=0 --state-dependency 1 0
+time iterative_solver example_specs/blue_increase.sk example_alus/stateful_alus/pred_raw.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=1 --state-dependency 1 0
+
+
+		                                                    pkt_0  12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12                                                pkt_0 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 
+                                                                    pkt_1  20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20 + 20                                                pkt_1 6 + 6 + 6 + 6 + 6 + 6 + 6 + 7 + 6 + 6
+                                                                      s_0  18 + 18 + 18 + 18 + 18 + 18 + 18 + 19 + 18 + 17                                                  s_0 221m57s + 225m48s + 214m56s + 202m32s + 218m20s + 227m8s + 214m54s + 220m43s + 211m7s + 213m34s 
+                                                                      s_1  281 + 275 + 276 + 299 + 329 + 302 + 321 + 324 + 317 + 325                                        s_1 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8
+blue_decrease.sk        133m48s + 137m48s + 142m43s + 150m47s + 137m22s + 136m44s + 134m6s + 138m60s + 141m13s + 163m45s                882m1s + 861m18s
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10
+
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=0
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=1
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=0
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=1
+
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-dependency 1 0
+
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=0 --state-dependency 1 0
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --pkt-fields=1 --state-dependency 1 0
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=0 --state-dependency 1 0
+time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/sub.alu example_alus/stateless_alus/stateless_alu.alu 4 2 "0,1,2,3" 10 --state-groups=1 --state-dependency 1 0
+                                                                    pkt_0  8 + 9 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8                                                           pkt_0
+                                                                    pkt_1  12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12                                                 pkt_1
+                                                                    pkt_2  8 + 8 + 8 + 9 + 8 + 8 + 8 + 8 + 8 + 8                                                           pkt_2
+                                                                    pkt_3  36.5h(timeout)                                                                                  pkt_3 48h(timeout)
+                                                                      s_0  35.5h(timeout)                                                                                    s_0
+                                                                      s_1  8 + 8 + 8 + 8 + 7 + 8 + 8 + 8 + 8 + 8                                                             s_1
+                                                                pkt_3 3*4  
+                                                                pkt_3 3*5
+                                                                s_0   3*4
+                                                                s_0   3*5      
+flowlets.c           28430.01 + 490m32.145s
+
+
+rcp.c        10m48.326s + 10m47.471s + 11m5.967s +                    pkt_0 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12  
+             10m50.616s + 11m6.757s +  11m11.656s +                   pkt_1 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 
+             12m4.175s + 11m42.984s + 11m53.402s +                    s_0 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 
+             21m29.411s                                               s_1 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12
+                                                                      s_2 17 + 17 + 17 + 17 + 17 + 17 + 17 + 17 + 17 + 17
+
+learn_filter.c   21m20.658s + 22m46.094s + 20m23.682s +             pkt_0 
+                 22m18.705s + 21m44.928s + 22m55.621s +               s_0 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 
+                 21m13.579s + 21m6.531s + 21m25.641s +                s_1 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7
+                 21m29.411s                                           s_2 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7
+
+stfq.c           449m4.802s                                          pkt_0 57m50s + 58m58s + 55m3s + 62m41s + 8m9.705s(Fail) + 52m13s + 51m29s + 52m40s + 52m38s + 53m56s
+                                                                 pkt_0 3*7
+                                                                 pkt_0 3*6 fail in 4s
+                                                                 pkt_0 4*7
+                                                                 pkt_0 4*6 
+                                                                     pkt_1 2m8s + 2m9s + 2m8s + 2m12s + 2m11s + 2m11s + 2m10s + 2m12s + 2m8s + 2m11s
+                                                                     pkt_2 13 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12
+                                                                       s_0 4m1s + 4m7s + 4m8s + 4m9s + 4m7s + 4m15s + 4m8s + 4m8s + 4m + 4m8s
+
+time iterative_solver /tmp/stfq_0.sk chipmunk_alus/stateful_alus/nested_ifs.alu chipmunk_alus/stateless_alus/stateless_alu.alu 4 8 "0,1,2,3" 10
+
+time iterative_solver /tmp/stfq_0.sk chipmunk_alus/stateful_alus/nested_ifs.alu chipmunk_alus/stateless_alus/stateless_alu.alu 4 8 "0,1,2,3" 10 --pkt-fields=0
+time iterative_solver /tmp/stfq_0.sk chipmunk_alus/stateful_alus/nested_ifs.alu chipmunk_alus/stateless_alus/stateless_alu.alu 4 8 "0,1,2,3" 10 --pkt-fields=1
+time iterative_solver /tmp/stfq_0.sk chipmunk_alus/stateful_alus/nested_ifs.alu chipmunk_alus/stateless_alus/stateless_alu.alu 4 8 "0,1,2,3" 10 --pkt-fields=2
+time iterative_solver /tmp/stfq_0.sk chipmunk_alus/stateful_alus/nested_ifs.alu chipmunk_alus/stateless_alus/stateless_alu.alu 4 8 "0,1,2,3" 10 --state-groups=0
+
+
+
+
+dns_ttl.c                                                           pkt_0 31 + 31 + 31 + 31 + 31 + 31 + 32 + 30 + 31 + 31
+                                                                pkt_1 1*3 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+                                                                    pkt_1 274m43s 
+                                                                pkt_2 1*3 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+                                                                    pkt_2 75m51s + 69m49s + 73m48s + 74m23s + 73m31s + 74m53s
+                                                                    s_0   3m32s + 3m23s + 3m18s + 3m28s + 3m30s + 3m14s + 3m5s + 3m16s + 3m16s + 3m16s
+                                                                    s_1   5m48s + 5m43s + 5m50s + 5m45s + 5m42s + 5m35s + 5m37s + 5m37s + 5m38s + 5m22s
+                                                                    s_2
+
+stateful_fw.c                                                        pkt_0 7 + 7 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 
+                                                                     pkt_1 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
+                                                                     pkt_2 22 + 25 + 24 + 24 + 20 + 24 + 25 + 25 + 25 + 25 
+                                                                     pkt_3 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19
+                                                                   s_0 3*5 13 + 13 + 13 + 13 + 13 + 13 + 14 + 14 + 14 + 14
+                                                                   s_0 4*4 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 11
