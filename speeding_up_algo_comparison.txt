@@ -47,9 +47,9 @@ time iterative_solver example_specs/blue_decrease.sk example_alus/stateful_alus/
                                                                     pkt_3  36.5h(timeout)                                                                                  pkt_3 48h(timeout)
                                                                       s_0  35.5h(timeout)                                                                                    s_0
                                                                       s_1  8 + 8 + 8 + 8 + 7 + 8 + 8 + 8 + 8 + 8                                                             s_1
-                                                                pkt_3 3*4  
+                                                                pkt_3 3*4  7m
                                                                 pkt_3 3*5
-                                                                s_0   3*4
+                                                                s_0   3*4  1m
                                                                 s_0   3*5      
 flowlets.c           28430.01 + 490m32.145s
 
@@ -57,19 +57,22 @@ flowlets.c           28430.01 + 490m32.145s
 rcp.c        10m48.326s + 10m47.471s + 11m5.967s +                    pkt_0 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12  
              10m50.616s + 11m6.757s +  11m11.656s +                   pkt_1 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 
              12m4.175s + 11m42.984s + 11m53.402s +                    s_0 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 + 6 
-             21m29.411s                                               s_1 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12
+             11m50s                                                   s_1 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12
                                                                       s_2 17 + 17 + 17 + 17 + 17 + 17 + 17 + 17 + 17 + 17
 
-learn_filter.c   21m20.658s + 22m46.094s + 20m23.682s +             pkt_0 
+learn_filter.c   21m20.658s + 22m46.094s + 20m23.682s +             pkt_0 755m7.416s + 828m58.407s + 775m29.497s 
                  22m18.705s + 21m44.928s + 22m55.621s +               s_0 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 
                  21m13.579s + 21m6.531s + 21m25.641s +                s_1 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7
                  21m29.411s                                           s_2 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7 + 7
+                                                                pkt_0 3*3
+                                                                pkt_0 4*3
+                                                                pkt_0 
 
 stfq.c           449m4.802s                                          pkt_0 57m50s + 58m58s + 55m3s + 62m41s + 8m9.705s(Fail) + 52m13s + 51m29s + 52m40s + 52m38s + 53m56s
-                                                                 pkt_0 3*7
+                                                                 pkt_0 3*7 25m4.851s + 25m40.457s + 24m42.210s + 25m26.673s + 25m59.055s + 26m19.955s + 24m46.371s +   
                                                                  pkt_0 3*6 fail in 4s
-                                                                 pkt_0 4*7
-                                                                 pkt_0 4*6 
+                                                                 pkt_0 4*7 169m22.109s
+                                                                 pkt_0 4*6 64m18.076s
                                                                      pkt_1 2m8s + 2m9s + 2m8s + 2m12s + 2m11s + 2m11s + 2m10s + 2m12s + 2m8s + 2m11s
                                                                      pkt_2 13 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12 + 12
                                                                        s_0 4m1s + 4m7s + 4m8s + 4m9s + 4m7s + 4m15s + 4m8s + 4m8s + 4m + 4m8s
@@ -92,10 +95,13 @@ dns_ttl.c                                                           pkt_0 31 + 3
                                                                     s_0   3m32s + 3m23s + 3m18s + 3m28s + 3m30s + 3m14s + 3m5s + 3m16s + 3m16s + 3m16s
                                                                     s_1   5m48s + 5m43s + 5m50s + 5m45s + 5m42s + 5m35s + 5m37s + 5m37s + 5m38s + 5m22s
                                                                     s_2
+                                                                  s_2 2*2 1m19.252s with remove of state_and_packet.pkt_2=state_and_packet.pkt_1*1+state_and_packet.pkt_0;
 
 stateful_fw.c                                                        pkt_0 7 + 7 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 
                                                                      pkt_1 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
                                                                      pkt_2 22 + 25 + 24 + 24 + 20 + 24 + 25 + 25 + 25 + 25 
-                                                                     pkt_3 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19
+                                                                     pkt_3 46h(timeout)
+                                                                 pkt_3 3*3 78m3.716s with removal of state_and_packet.pkt_2=state_and_packet.pkt_1*1+state_and_packet.pkt_0;
+                                                                       s_0 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 
                                                                    s_0 3*5 13 + 13 + 13 + 13 + 13 + 13 + 14 + 14 + 14 + 14
                                                                    s_0 4*4 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 11
