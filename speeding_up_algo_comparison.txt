@@ -101,13 +101,14 @@ dns_ttl.c          1703m23.737s(F)                              pkt_0 31 + 31 + 
                                                                   s_2 4*3 579m2s(F) + 418m38s(F) + 495m9s(F) + 460m23s(F) + 365m59s(F) + 412m29s(F) + 512m59s(F) + 497m2s(F)
                                                                   s_2 2*3 74.5h(timeout)
                                                                   s_2 2*3 86h(timeout)
-                                                                  s_2 2*2 1m19s with remove of state_and_packet.pkt_2=state_and_packet.pkt_1*1+state_and_packet.pkt_0;
+                                                                  s_2 2*2 1m19s with remove of state_and_packet.pkt_1=state_and_packet.pkt_0;
 
 
 stateful_fw.c      1598m40.203s(F)                                   pkt_0 7 + 7 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 
                                                                      pkt_1 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
                                                                      pkt_2 22 + 25 + 24 + 24 + 20 + 24 + 25 + 25 + 25 + 25 
-                                                                     pkt_3 46h(timeout) 
+                                                                     pkt_3 46h(timeout)
+                                                                 pkt_3 3*4 2657m6.315s with removal of state_and_packet.pkt_2=state_and_packet.pkt_1*1+state_and_packet.pkt_0; 
                                                                  pkt_3 3*4 1728m50.282s(F) + 1838m30.597s(F)
                                                                  pkt_3 3*3 78m3.716s with removal of state_and_packet.pkt_2=state_and_packet.pkt_1*1+state_and_packet.pkt_0;
                                                                        s_0 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 + 19 
