@@ -1,0 +1,40 @@
+Slicing experiment results
+Note1: run every experiments on cyclops
+Note2: times are in seconds
+Note3: do not turn on parallel mode
+Benchmark                                                output field + gradual search +                    Relationship
+stateful_fw                                    pkt_0 1*1     3s                                 pkt_0        -->        pkt_0
+                                               pkt_1 1*1     3s                                 pkt_1        -->        pkt_1
+                                               pkt_2 1*2     4s                                 pkt_1 pkt_2  -->        pkt_2
+                                               pkt_3 3*3 978m13.713s(cut)                      pkt_0 pkt_1 pkt_3  -->        pkt_3
+                                               pkt_3 3*3 23m56.844s(parallel)                  pkt_0 pkt_1 pkt_3  -->        pkt_3
+                                               s_0   2*1     14s                                pkt_1        -->        s_0
+
+flowlets                                       pkt_0 1*1     3s                                 pkt_0        -->        pkt_0
+                                               pkt_1 1*1     3s                                 pkt_1        -->        pkt_1
+                                               pkt_2 1*1     3s                                 pkt_2        -->        pkt_2
+                                               pkt_3 3*4    17s                     pkt_0 pkt_2 pkt_3        -->        pkt_3
+                                               s_0   3*3    14s                           pkt_0 pkt_2        -->        s_0
+                                               s_1   1*1     3s                                 pkt_2        -->        s_1
+
+stfq                                           pkt_0 1*1     4s                                 pkt_2        -->        pkt_0
+                                               pkt_1 1*1     4s                                 pkt_1        -->        pkt_1
+                                               pkt_2 1*1     4s                                 pkt_2        -->        pkt_2
+                                               s_0   2*2     19s                          pkt_1 pkt_2        -->        s_0
+
+dns_ttl                                        pkt_0 1*1     5s                                 pkt_0        -->        pkt_0
+                                               pkt_1 1*1     5s                                 pkt_0        -->        pkt_1
+                                               pkt_2 1*1     5s                                 pkt_2        -->        pkt_2
+                                               s_0   1*1    13s                                 pkt_2        -->        s_0
+                                               s_1   1*1     5s                                 pkt_2        -->        s_1
+                                               s_2   2*2    11s                                 pkt_2        -->        s_2
+
+
+blue_decrease                                  pkt_0 1*1     4s                                 pkt_0        -->        pkt_0
+                                               pkt_1 1*1     4s                                 pkt_0        -->        pkt_1
+                                                 s_0        25s                           pkt_0 pkt_1        -->        s_0
+                                                 s_1 2*2    27s                           pkt_0 pkt_1        -->        s_1
+
+Output field: ...
+Gradual search: ...
+Relationship: ...
