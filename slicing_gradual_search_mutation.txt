@@ -213,3 +213,8 @@ stateful_fw                                    pkt_0 1*1     s                  
                                               pkt_3 3*3 (cut)                                          pkt_3 3*3 (cut)
                                               pkt_3 3*3     22m11s(parallel)                                      pkt_3 3*3    63m11s(parallel)
                                               s_0   2*1     14s                                                   s_0   2*1     14s 
+cmd line:
+time iterative_solver /tmp/stateful_fw_equivalent_1_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/pred_raw.alu chipmunk_alus/stateless_alus/stateless_alu.alu 1 1 "0,1,2,3,102" 10 --pkt-fields=0 --input-packet 0
+time iterative_solver /tmp/stateful_fw_equivalent_1_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/pred_raw.alu chipmunk_alus/stateless_alus/stateless_alu.alu 1 1 "0,1,2,3,102" 10 --pkt-fields=1 --input-packet 1
+time iterative_solver /tmp/stateful_fw_equivalent_1_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/pred_raw.alu chipmunk_alus/stateless_alus/stateless_alu.alu 1 2 "0,1,2,3,102" 10 --pkt-fields=2 --input-packet 0 1
+time iterative_solver /tmp/stateful_fw_equivalent_1_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/pred_raw.alu chipmunk_alus/stateless_alus/stateless_alu.alu 2 1 "0,1,2,3,102" 10 --state-groups=0 --input-packet 1
