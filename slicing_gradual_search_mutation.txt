@@ -34,12 +34,12 @@ flowlets      mutation1                        pkt_0 1*1    4s                  
                                                s_0   3*3    7m38.305s                                             s_0   3*3   7m37.856s  
                                                s_1   1*1    3s                                                    s_1   1*1   3s
 
-             mutation10                       pkt_0 1*1    3s  
-                                              pkt_1 1*1    3s  
-                                              pkt_2 1*1    3s  
-                                              pkt_3 3*4    33m48.624s  
-                                              s_0   3*3    5m53.479s  
-                                              s_1   1*1    3s
+             mutation10                       pkt_0 1*1    3s                     original                         pkt_0 1*1 
+                                              pkt_1 1*1    3s                                                      pkt_1 1*1
+                                              pkt_2 1*1    3s                                                      pkt_2 1*1
+                                              pkt_3 3*4    33m48.624s                                              pkt_3 3*4
+                                              s_0   3*3    5m53.479s                                               s_0   3*3  0m55.553s
+                                              s_1   1*1    3s                                                      s_1   1*1  5s
 
 cmd line:
 time iterative_solver /tmp/flowlets_equivalent_1_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/pred_raw.alu chipmunk_alus/stateless_alus/stateless_alu.alu 1 1 "0,1,2,3,4,5" 10 --pkt-fields=0 --input-packet 0
@@ -99,32 +99,32 @@ time iterative_solver /tmp/dns_ttl_change_equivalent_1_canonicalizer_equivalent_
 time iterative_solver /tmp/dns_ttl_change_equivalent_1_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/nested_ifs.alu chipmunk_alus/stateless_alus/stateless_alu.alu 1 1 "0,1,2,3" 10 --state-group=2 --input-packet 2
 
 blue_decrease       mutation1                  pkt_0 1*1     4s                                 pkt_0        -->        pkt_0
-                                               pkt_1 1*1     s                                 pkt_0        -->        pkt_1
+                                               pkt_1 1*1     4s                                 pkt_0        -->        pkt_1
                                                  s_0 2*2     26s                           pkt_0 pkt_1        -->        s_0
                                                  s_1 2*2     28s                           pkt_0 pkt_1        -->        s_1
 
                     mutation2                  pkt_0 1*1     4s                         mutation3                  pkt_0 1*1     4s
-                                               pkt_1 1*1     s                                                     pkt_1 1*1     s 
+                                               pkt_1 1*1     4s                                                     pkt_1 1*1     4s 
                                                  s_0 2*2     26s                                                       s_0 2*2    26s 
                                                  s_1 2*2     28s                                                       s_1 2*2   28s 
 
                     mutation4                  pkt_0 1*1     4s                         mutation5                  pkt_0 1*1     4s
-                                               pkt_1 1*1     s                                                     pkt_1 1*1     s 
+                                               pkt_1 1*1     4s                                                    pkt_1 1*1     4s 
                                                  s_0 2*2     26s                                                     s_0 2*2     26s 
                                                  s_1 2*2     28s                                                        s_1 2*2  28s 
 
                     mutation6                  pkt_0 1*1     4s                         mutation7                  pkt_0 1*1     4s
-                                               pkt_1 1*1     s                                                     pkt_1 1*1     s 
+                                               pkt_1 1*1     4s                                                    pkt_1 1*1     4s 
                                                  s_0 2*2     26s                                                     s_0 2*2     26s 
                                                  s_1 2*2     28s                                                        s_1 2*2  11s 
 
                     mutation8                  pkt_0 1*1     4s                         mutation9                  pkt_0 1*1     4s
-                                               pkt_1 1*1     s                                                     pkt_1 1*1     s 
+                                               pkt_1 1*1     4s                                                    pkt_1 1*1     4s 
                                                  s_0 2*2     26s                                                       s_0 2*2   26s 
                                                  s_1 2*2     28s                                                        s_1 2*2  28s 
 
-                    mutation10                  pkt_0 1*1     4s
-                                               pkt_1 1*1     s 
+                    mutation10                 pkt_0 1*1     4s
+                                               pkt_1 1*1     4s 
                                                  s_0 2*2     26s 
                                                  s_1 2*2     28s 
 

@@ -13,7 +13,8 @@ stateful_fw                                    pkt_0 1*1     3s                 
 flowlets                                       pkt_0 1*1     3s                                 pkt_0        -->        pkt_0
                                                pkt_1 1*1     3s                                 pkt_1        -->        pkt_1
                                                pkt_2 1*1     3s                                 pkt_2        -->        pkt_2
-                                               pkt_3 3*4    17s                     pkt_0 pkt_2 pkt_3        -->        pkt_3
+                                               pkt_3 3*4    10m3.978s                     pkt_0 pkt_2 pkt_3        -->        pkt_3
+                                                     3*3    23m
                                                s_0   3*3    14s                           pkt_0 pkt_2        -->        s_0
                                                s_1   1*1     3s                                 pkt_2        -->        s_1
 
