@@ -1,0 +1,189 @@
+                               pkt_0                  pkt_1                      state_0                      state_1
+1.
+Blue_increase                  1*1                     1*1                        3*2                          2*2
+1                               3s                     3s                         40s                          23s 
+2                               3s                     3s                         40s                          23s
+3                               3s                     3s                         40s                          23s
+4                               3s                     3s                         40s                          23s
+5                               3s                     3s                         40s                          23s
+6                               3s                     3s                         40s                          23s
+7                               3s                     3s                         40s                          23s
+8                               3s                     3s                         40s                          23s
+9                               3s                     3s                         40s                          23s
+10                              3s                     3s                         40s                          23s
+
+2.
+Blue_decrease                  1*1                     1*1                        2*2                         2*2 
+1                              4s                      4s                      2m10.180s                      26s
+2                              4s                      4s                      2m17.773s                      27s                     
+3                              4s                      4s                      2m16.779s                      26s 
+4                              4s                      4s                      2m13.215s                      27s
+5                              4s                      4s                      2m11.692s                      26s
+6                              4s                      4s                      2m11.734s                      26s
+7                              4s                      4s                      2m10.991s                      26s
+8                              4s                      4s                      2m24.456s                      26s 
+9                              4s                      4s                      2m12.489s                      27s 
+10                             4s                      4s                      2m25.105s                      27s
+
+time iterative_solver /tmp/blue_decrease_equivalent_${i}_canonicalizer_equivalent_0.sk chipmunk_alus/stateful_alus/sub.alu chipmunk_alus/stateless_alus/stateless_alu.alu 2 2 "0,1,2,3,10" 10 --state-groups=0 --input-packet 0 1 | tail -n 5
+
+
+                             pkt_0                  pkt_1                      pkt_2                   pkt_3             state_0                  state_1 
+3.
+flowlets                     1*1                     1*1                        1*1                    3*4                 3*2                     1*1
+1                             3s                     3s                         3s                    42m               2m16.397s                 3s       
+2                             3s                     3s                         3s                    42m               2m17.007s                 3s
+3                             3s                     3s                         3s                    42m               2m20.307s                 3s
+4                             3s                     3s                         3s                    42m               2m17.418s                 3s
+5                             3s                     3s                         3s                    42m               2m21.727s                 3s
+6                             3s                     3s                         3s                    42m               2m18.962s                 3s
+7                             3s                     3s                         3s                    42m               2m17.370s                 3s
+8                             3s                     3s                         3s                    42m               2m14.657s                 3s
+9                             3s                     3s                         3s                    42m               2m12.502s                 3s
+10                            3s                     3s                         3s                    42m               2m6.042s                 3s
+
+                             pkt_0                  pkt_1                      pkt_2                   pkt_3             state_0
+4.
+stateful_fw                  1*1                     1*1                        1*2                                        2*1 
+1                             3s                      3s                       4s                                          13s
+2                             3s                      3s                       4s                                          13s
+3                             3s                      3s                       4s                                          13s
+4                             3s                      3s                       4s                                          13s
+5                             3s                      3s                       4s                                          13s
+6                             3s                      3s                       4s                                          13s
+7                             3s                      3s                       4s                                          13s
+8                             3s                      3s                       4s                                          13s
+9                             3s                      3s                       4s                                          13s
+10                            4s                      3s                       4s                                          13s
+
+5.
+                             pkt_0                  pkt_1                      pkt_2                   state_0            state_1               state_2
+dns_tt                       1*1                     1*1                        1*1                     1*1                2*2                   1*1
+1                              5s                    5s                         5s                       9s                 9s                    5s             
+2                              5s                    5s                         5s                       9s                 9s                    5s
+3                              5s                    5s                         5s                       9s                 9s                    5s
+4                              5s                    5s                         5s                       9s                 9s                    5s
+5                              5s                    5s                         5s                       9s                 9s                    5s
+6                              5s                    5s                         5s                       9s                 9s                    5s
+7                              5s                    5s                         5s                       5s                 13s                   5s
+8                              5s                    5s                         5s                       9s                 9s                    5s
+9                              5s                    5s                         5s                       9s                 9s                    5s
+10                             5s                    5s                         5s                       9s                 9s                    5s
+
+6.
+                             pkt_0                  pkt_1                      pkt_2                   state_0
+stfq                         1*1                    1*2                        1*1                     1*2
+1                             4s                     4s                         4s                      4s                             
+2                             4s                     4s                         4s                      4s                          
+3                             4s                     4s                         4s                      4s                          
+4                             4s                     4s                         4s                      4s                          
+5                             4s                     4s                         4s                      4s                          
+6                             4s                     4s                         4s                      4s                          
+7                             4s                     4s                         4s                      4s                          
+8                             4s                     4s                         4s                      4s                          
+9                             4s                     4s                         4s                      4s                          
+10                            4s                     4s                         4s                      4s                         
+
+7.                          pkt_0                   state_0
+sampling                     1*1                     1*1
+1                            9s                       14s 
+2                            9s                       14s
+3                            9s                       14s
+4                            9s                       14s
+5                            9s                       14s
+6                            9s                       14s
+7                            9s                       14s
+8                            9s                       14s
+9                            9s                       14s
+10                           9s                       14s
+
+8.                           pkt_0                    pkt_1                       state_0                      state_1                      state_2
+rcp                           1*1                      1*1                         1*1                          2*2                         2*2
+1                             4s                        4s                          4s                           17s                         9s
+2                             4s                        4s                          4s                           17s                         9s
+3                             4s                        4s                          4s                           17s                         9s
+4                             4s                        4s                          4s                           17s                         9s
+5                             4s                        4s                          4s                           17s                         9s
+6                             4s                        4s                          4s                           17s                         9s
+7                             4s                        4s                          4s                           17s                         9s
+8                             4s                        4s                          4s                           17s                         9s
+9                             4s                        4s                          4s                           17s                         9s
+10                            4s                        4s                          4s                           17s                         9s
+
+9.                          origin                    state_0                      state_1                      state_2                   pkt_0
+learn_filter                 5*3
+1                          35m23.855s                  3s                           3s                         3s
+2                          34m15.219s                  3s                           4s                         3s
+3                          34m4.346s                   3s                           3s                         4s
+4                          35m24.943s                  3s                           4s                         3s
+5                          34m52.840s                  3s                           3s                         3s
+6                          33m53.066s                  4s                           3s                         3s
+7                          33m50.383s                  3s                           3s                         3s
+8                          34m34.808s                  3s                           4s                         3s
+9                          33m45.164s                  3s                           3s                         3s
+10                         33m59.343s                  3s                           3s                         3s
+
+10.                       pkt_0                     state_0                      state_1
+marple_tcp_nmo             1*1                       1*1                          3*2
+1                           4s                        4s                          15s
+2                           4s                        4s                          15s
+3                           4s                        4s                          15s
+4                           4s                        4s                          15s
+5                           4s                        4s                          15s
+6                           4s                        4s                          15s
+7                           4s                        4s                          10s
+8                           4s                        4s                          15s
+9                           4s                        4s                          19s
+10                          4s                        4s                          15s
+
+11.                       pkt_0                     state_0
+marple_new                2*2                        2*2
+1                          4s                        4s 
+2                          4s                        4s
+3                          4s                        4s
+4                          4s                        4s
+5                          4s                        4s
+6                          4s                        4s
+7                          4s                        4s
+8                          4s                        4s
+9                          4s                        4s
+10                         4s                        4s
+
+12.                      pkt_0                     state_0
+snap_heavy_hitter         1*1                       1*1
+1                         4s                        12s 
+2                         4s                        12s
+3                         4s                        12s
+4                         4s                        12s
+5                         4s                        12s
+6                         4s                        12s
+7                         4s                        12s
+8                         4s                        12s
+9                         4s                        12s
+10                        4s                        12s
+
+13.                     pkt_0                     state_0
+spam_detection           1*1                       1*1
+1                        4s                        16s
+2                        4s                        16s
+3                        4s                        16s
+4                        4s                        16s
+5                        4s                        16s
+6                        4s                        16s
+7                        4s                        16s
+8                        4s                        16s
+9                        4s                        16s
+10                       4s                        16s
+
+14.                      pkt_0                    pkt_1                      pkt_2                    pkt_3                 pkt_4             state_0
+conga                     1*1                       1*1                        1*1                      1*1                   1*1               1*2
+1                         4s                       4s                         4s                       4s                    4s                 5s                     
+2                         4s                       4s                         4s                       4s                    4s                 5s                    
+3                         4s                       4s                         4s                       4s                    4s                 5s                    
+4                         4s                       4s                         4s                       4s                    4s                 5s                    
+5                         4s                       4s                         4s                       4s                    4s                 5s                    
+6                         4s                       4s                         4s                       4s                    4s                 5s                    
+7                         4s                       4s                         4s                       4s                    4s                 5s                    
+8                         4s                       4s                         4s                       4s                    4s                 5s                    
+9                         4s                       4s                         4s                       4s                    4s                 5s                    
+10                        4s                       4s                         4s                       4s                    4s                 5s                    
